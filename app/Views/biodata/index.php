@@ -38,16 +38,16 @@
                                 <tr>
                                     <td><?= $no++; ?></td>
                                     <td>
-                                        <img src="<?= base_url('foto/' . $row->img) ?>" class="mr-2" alt="image"> <?= $row->nama_lengkap ?>
+                                        <img src="<?= base_url('foto/' . $row['img']) ?>" class="mr-2" alt="image"> <?= $row['nama_lengkap'] ?>
                                     </td>
-                                    <td><?= $row->nama_cantik ?></td>
-                                    <td><?= $row->angkatan ?></td>
+                                    <td><?= $row['nama_cantik'] ?></td>
+                                    <td><?= $row['angkatan'] ?></td>
                                     <td>
-                                        <a href="biodata/edit/<?= $row->id_biodata ?>" class="badge badge-pill badge-primary text-white"><i class="mdi mdi-pencil mr-2"></i>Edit</a>
+                                        <a href="biodata/edit/<?= $row['id_biodata'] ?>" class="badge badge-pill badge-primary text-white"><i class="mdi mdi-pencil mr-2"></i>Edit</a>
 
                                         <a href="#" class="badge badge-pill badge-danger text-white"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
 
-                                        <div type="button" class="badge badge-pill badge-info text-white" data-toggle="modal" data-target="#exampleModal<?= $row->id_biodata ?>"><i class="mdi mdi-magnify-plus mr-2"></i>Detail</div>
+                                        <div type="button" class="badge badge-pill badge-info text-white" data-toggle="modal" data-target="#exampleModal<?= $row['id_biodata'] ?>"><i class="mdi mdi-magnify-plus mr-2"></i>Detail</div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -63,7 +63,7 @@
 <?php
 foreach ($bio as $row) :
 ?>
-    <div class="modal fade" id="exampleModal<?= $row->id_biodata ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal<?= $row['id_biodata'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -74,44 +74,44 @@ foreach ($bio as $row) :
                 </div>
                 <div class="modal-body ">
                     <div class="card">
-                        <img src="<?= base_url('foto/' . $row->img) ?>" class="img-lg rounded-circle mt-3 mx-auto" alt="image">
+                        <img src="<?= base_url('foto/' . $row['img']) ?>" class="img-lg rounded-circle mt-3 mx-auto" alt="image">
                         <div class="card-body">
                             <table class="table">
                                 <tbody>
                                     <tr>
                                         <td>Nama Lengkap</td>
                                         <td>:</td>
-                                        <td><?= $row->nama_lengkap ?></td>
+                                        <td><?= $row['nama_lengkap'] ?></td>
                                     </tr>
 
                                     <tr>
                                         <td>Nama Cantik</td>
                                         <td>:</td>
-                                        <td><?= $row->nama_cantik ?></td>
+                                        <td><?= $row['nama_cantik'] ?></td>
                                     </tr>
 
                                     <tr>
                                         <td>Angkatan</td>
                                         <td>:</td>
-                                        <td><?= $row->angkatan ?></td>
+                                        <td><?= $row['angkatan'] ?></td>
                                     </tr>
 
                                     <tr>
                                         <td>Tanggal Lahir</td>
                                         <td>:</td>
-                                        <td><?= tanggal_indo($row->tgl_lahir)  ?></td>
+                                        <td><?= tanggal_indo($row['tgl_lahir'])  ?></td>
                                     </tr>
 
                                     <tr>
                                         <td>Alamat</td>
                                         <td>:</td>
-                                        <td><?= $row->alamat ?></td>
+                                        <td><?= $row['alamat'] ?></td>
                                     </tr>
 
                                     <tr>
                                         <td>No WA</td>
                                         <td>:</td>
-                                        <td><?= $row->no_wa ?></td>
+                                        <td><?= $row['no_wa'] ?></td>
                                     </tr>
                                 </tbody>
                             </table>

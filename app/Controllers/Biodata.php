@@ -109,15 +109,30 @@ class Biodata extends BaseController
     {
         $data = [
             'judul' => 'Edit Data Biodata',
-            'bio' => $this->biodataModel->getDataId($id),
+            'bio' => $this->biodataModel->getData($id)->getRow(),
             'validation' => \Config\Services::validation()
 
         ];
         return view('biodata/edit', $data);
     }
 
-    public function update($id)
+    public function update()
     {
-        dd($this->request->getVar());
+        // $fileFoto = $this->request->getFile('img');
+
+        $this->biodataModel->save([
+
+            'nama_lengkap' => $this->request->getVar('nama_lengkap'),
+            'nama_cantik' => $this->request->getVar('nama_cantik'),
+            'angkatan' => $this->request->getVar('angkatan'),
+            'tgl_lahir' => $this->request->getVar('tgl_lahir'),
+            'no_wa' => $this->request->getVar('no_wa'),
+            'alamat' => $this->request->getVar('alamat'),
+            'img' => $this->request->getVar('img')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil diubah');
+        return redirect()->to('/biodata');
+        // dd($this->request->getVar());
     }
 }

@@ -35,7 +35,7 @@
                             $no = 1;
                             foreach ($bio as $row) :
                             ?>
-                                <tr>
+                                <tr id="<?= $row['id_biodata'] ?>">
                                     <td><?= $no++; ?></td>
                                     <td>
                                         <img src="<?= base_url('foto/' . $row['img']) ?>" class="mr-2" alt="image"> <?= $row['nama_lengkap'] ?>
@@ -45,7 +45,7 @@
                                     <td>
                                         <a href="biodata/edit/<?= $row['id_biodata'] ?>" class="badge badge-pill badge-primary text-white"><i class="mdi mdi-pencil mr-2"></i>Edit</a>
 
-                                        <a href="biodata/hapus/<?= $row['id_biodata'] ?>" class="badge badge-pill badge-danger text-white" onclick="showSwal('warning-message-and-cancel')"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
+                                        <a href="biodata/hapus/<?= $row['id_biodata'] ?>" class="badge badge-pill badge-danger text-white remove"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
 
                                         <div type="button" class="badge badge-pill badge-info text-white" data-toggle="modal" data-target="#exampleModal<?= $row['id_biodata'] ?>"><i class="mdi mdi-magnify-plus mr-2"></i>Detail</div>
                                     </td>
@@ -127,4 +127,38 @@ foreach ($bio as $row) :
 <?php endforeach; ?>
 <!-- end modal -->
 
+
 <?= $this->endSection() ?>
+<script>
+    $(".remove").click(function() {
+        var id = $(this).parents("tr").attr("id");
+
+        swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3f51b5',
+                cancelButtonColor: '#ff4081',
+                confirmButtonText: 'Great ',
+            },
+            function(isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        url: '/index/' + id,
+                        type: 'DELETE',
+                        error: function() {
+                            alert('Something is wrong');
+                        },
+                        success: function(data) {
+                            $("#" + id).remove();
+                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        }
+                    });
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+
+    });
+</script>

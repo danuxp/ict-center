@@ -119,9 +119,8 @@ class Biodata extends BaseController
     public function update()
     {
         // $fileFoto = $this->request->getFile('img');
-
-        $this->biodataModel->save([
-
+        $id = $this->request->getVar('id');
+        $data = [
             'nama_lengkap' => $this->request->getVar('nama_lengkap'),
             'nama_cantik' => $this->request->getVar('nama_cantik'),
             'angkatan' => $this->request->getVar('angkatan'),
@@ -129,10 +128,20 @@ class Biodata extends BaseController
             'no_wa' => $this->request->getVar('no_wa'),
             'alamat' => $this->request->getVar('alamat'),
             'img' => $this->request->getVar('img')
-        ]);
+        ];
 
-        session()->setFlashdata('pesan', 'Data berhasil diubah');
+        $this->biodataModel->updateData($data, $id);
+
+
+
+        // session()->setFlashdata('pesan', 'Data berhasil diubah');
         return redirect()->to('/biodata');
-        // dd($this->request->getVar());
+        dd($this->request->getVar());
+    }
+
+    public function hapus($id)
+    {
+        $this->biodataModel->hapusData($id);
+        return redirect()->to('/biodata');
     }
 }

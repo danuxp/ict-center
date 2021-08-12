@@ -20,7 +20,7 @@
                     <hr class="pb-3">
                     <form action="/biodata/update/<?= $bio->id_biodata ?>" class="forms-sample" method="post" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
-                        <!-- <input type="hidden" class="form-control" name="id" value="<?= $bio->id_biodata ?>"> -->
+                        <input type="hidden" class="form-control" name="id" value="<?= $bio->id_biodata ?>">
 
                         <div class="form-group <?= ($validation->hasError('nama_lengkap')) ? 'has-danger' : '' ?>">
                             <label>Nama Lengkap</label>

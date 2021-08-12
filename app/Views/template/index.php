@@ -63,6 +63,8 @@
     <!-- dataTables -->
     <script src="<?= base_url() ?>/assets/vendors/datatables/jquery.dataTables.js"></script>
     <script src="<?= base_url() ?>/assets/vendors/datatables/dataTables.bootstrap4.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/sweetalert/sweetalert.min.js"></script>
+
 
 
 
@@ -77,6 +79,8 @@
     <script src="<?= base_url() ?>/assets/js/file-upload.js"></script>
     <script src="<?= base_url() ?>/assets/vendors/datatables/data-table.js"></script>
     <script src="<?= base_url() ?>/assets/js/modal-demo.js"></script>
+    <script src="<?= base_url() ?>/assets/js/alerts.js"></script>
+
 
 
 

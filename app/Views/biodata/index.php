@@ -45,7 +45,7 @@
                                     <td>
                                         <a href="biodata/edit/<?= $row['id_biodata'] ?>" class="badge badge-pill badge-primary text-white"><i class="mdi mdi-pencil mr-2"></i>Edit</a>
 
-                                        <a href="#" class="badge badge-pill badge-danger text-white"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
+                                        <a href="biodata/hapus/<?= $row['id_biodata'] ?>" class="badge badge-pill badge-danger text-white" onclick="showSwal('warning-message-and-cancel')"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
 
                                         <div type="button" class="badge badge-pill badge-info text-white" data-toggle="modal" data-target="#exampleModal<?= $row['id_biodata'] ?>"><i class="mdi mdi-magnify-plus mr-2"></i>Detail</div>
                                     </td>

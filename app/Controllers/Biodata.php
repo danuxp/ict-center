@@ -141,6 +141,12 @@ class Biodata extends BaseController
 
     public function hapus($id)
     {
+        $bio = $this->biodataModel->find($id);
+        dd($bio['img']);
+
+        if ($bio->img) {
+            unlink('foto/' . $bio->img);
+        }
         $this->biodataModel->hapusData($id);
         return redirect()->to('/biodata');
     }

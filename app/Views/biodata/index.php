@@ -129,36 +129,3 @@ foreach ($bio as $row) :
 
 
 <?= $this->endSection() ?>
-<script>
-    $(".remove").click(function() {
-        var id = $(this).parents("tr").attr("id");
-
-        swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3f51b5',
-                cancelButtonColor: '#ff4081',
-                confirmButtonText: 'Great ',
-            },
-            function(isConfirm) {
-                if (isConfirm) {
-                    $.ajax({
-                        url: '/index/' + id,
-                        type: 'DELETE',
-                        error: function() {
-                            alert('Something is wrong');
-                        },
-                        success: function(data) {
-                            $("#" + id).remove();
-                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                        }
-                    });
-                } else {
-                    swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
-
-    });
-</script>
